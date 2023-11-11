@@ -1229,7 +1229,84 @@ class Dialogs {
 
 const dialogs_dialogs = new Dialogs();
 
+;// CONCATENATED MODULE: ./src/js/scripts/scripts/product-description.js
+const productDescription = document.querySelector(".product-description");
+const buyBlock = productDescription?.querySelector(".product-buy");
+
+if (buyBlock) {
+  // const productDescriptionIntersectionObserver = new IntersectionObserver(entries => {
+  //   entries.forEach(entry => {
+  //     const { isIntersecting } = entry;
+
+  //     buyBlock.classList.toggle("show", isIntersecting);
+  //   });
+  // });
+
+  // productDescriptionIntersectionObserver.observe(productDescription);
+
+  /** @type {IntersectionObserver} */
+  let productDescriptionIntersectionObserver;
+
+  const productDescriptionResizeObserver = new ResizeObserver(entries => {
+    entries.forEach(entry => {
+      const { target } = entry;
+
+      productDescriptionIntersectionObserver?.disconnect();
+
+      productDescriptionIntersectionObserver = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            const { isIntersecting } = entry;
+
+            buyBlock.classList.toggle("show", isIntersecting);
+          });
+        },
+        {
+          threshold: threshold(target),
+        }
+      );
+
+      productDescriptionIntersectionObserver.observe(target);
+    });
+  });
+
+  productDescriptionResizeObserver.observe(productDescription);
+
+  /** @param {HTMLElement} target */
+  function threshold(target) {
+    const { clientHeight: htmlClientHeight } = document.documentElement;
+    const { clientHeight: blockClientHeight } = target;
+    const proportion = htmlClientHeight / 100 * 60;
+    const threshold = proportion / blockClientHeight;
+
+    return threshold < 0 ? 0 : threshold > 1 ? 1 : threshold;
+  }
+}
+
+// EXTERNAL MODULE: ./src/js/modules/slide.js
+var slide = __webpack_require__(524);
+;// CONCATENATED MODULE: ./src/js/scripts/scripts/product-characteristics.js
+
+
+/** @type {HTMLDivElement} */
+const characteristicsBlock = document.querySelector(".product-characteristics");
+/** @type {HTMLButtonElement} */
+const characteristicsButton = characteristicsBlock?.querySelector(".product-characteristics__button");
+/** @type {HTMLDivElement} */
+const characteristics = characteristicsBlock?.querySelector(".characteristics");
+
+if (characteristicsButton && characteristics) {
+  characteristicsButton.addEventListener("click", () => {
+    if (!characteristics.classList.contains("slide")) {
+      characteristicsButton.classList.toggle("active");
+      slide/* Slide */.M.toggle(characteristics);
+    }
+  });
+}
+
 ;// CONCATENATED MODULE: ./src/js/scripts/scripts.js
+
+
 
 
 
