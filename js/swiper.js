@@ -9670,6 +9670,36 @@ photosSliders?.forEach(photosSlider => {
   }
 });
 
+const brandsSlider = document.querySelector(".brands-slider");
+
+if (brandsSlider) {
+  const swiper = new Swiper(brandsSlider, {
+    modules: [Autoplay, Keyboard],
+    autoplay: {
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
+    keyboard: {
+      enabled: true,
+      pageUpDown: false,
+    },
+    breakpoints: {
+      501: {
+        slidesPerView: 3,
+      },
+      601: {
+        slidesPerView: 4,
+      },
+      769: {
+        slidesPerView: 5,
+      },
+    },
+    loop: true,
+    loopAddBlankSlides: true,
+    slidesPerView: 2,
+  });
+}
+
 const confidenceSlider = document.querySelector(".confidence-slider");
 
 if (confidenceSlider) {
