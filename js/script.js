@@ -1304,7 +1304,64 @@ if (characteristicsButton && characteristics) {
   });
 }
 
+;// CONCATENATED MODULE: ./src/js/scripts/scripts/catalog.js
+/** @type {NodeListOf<HTMLInputElement>} */
+const checkboxes = document.querySelectorAll(".catalog-checkbox > input");
+
+if (checkboxes.length) {
+  /** @type {HTMLInputElement[]} */
+  const checkboxesWithInner = [...checkboxes].filter(/** @param {HTMLInputElement} checkbox */ checkbox => {
+    return checkbox.parentElement.querySelector(".catalog-checkbox__inner");
+  });
+
+  checkboxesWithInner?.forEach(checkbox => {
+    /** @type {HTMLFieldSetElement} */
+    const innerCheckboxes = checkbox.parentElement.querySelector(".catalog-checkbox__inner");
+
+    checkbox.addEventListener("change", () => {
+      const { checked } = checkbox;
+
+      innerCheckboxes.toggleAttribute("disabled", !checked);
+    });
+  });
+}
+
+/** @type {HTMLDivElement} */
+const filter = document.querySelector(".catalog-filter");
+/** @type {HTMLButtonElement} */
+const openButton = document.querySelector(".catalog-button--open");
+/** @type {HTMLButtonElement} */
+const closeButton = document.querySelector(".catalog-button--close");
+
+if (filter && openButton && closeButton) {
+  openButton.addEventListener("click", () => {
+    filter.classList.toggle("show");
+  });
+
+  closeButton.addEventListener("click", () => {
+    closeFilter();
+  });
+
+  document.addEventListener("click", event => {
+    /** @type {{target: HTMLElement}} */
+    const { target } = event;
+
+    if (!target.closest(".catalog-filter") && !target.closest(".catalog-button--open")) closeFilter();
+  });
+
+  document.addEventListener("keydown", event => {
+    const { code } = event;
+
+    if (code === "Escape") closeFilter();
+  });
+
+  function closeFilter() {
+    filter.classList.remove("show");
+  }
+}
+
 ;// CONCATENATED MODULE: ./src/js/scripts/scripts.js
+
 
 
 
