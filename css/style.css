@@ -76,28 +76,37 @@ header {
 }
 
 input,
+textarea,
 button {
   font-family: inherit;
   color: inherit;
 }
 
+textarea,
 input {
   caret-color: currentColor;
 }
 
+textarea::-webkit-input-placeholder,
 input::-webkit-input-placeholder {
   color: inherit;
   opacity: 1;
 }
 
+textarea::-moz-placeholder,
 input::-moz-placeholder {
   color: inherit;
   opacity: 1;
 }
 
+textarea::placeholder,
 input::placeholder {
   color: inherit;
   opacity: 1;
+}
+
+textarea {
+  resize: vertical;
 }
 
 a[href]:focus-visible,
@@ -2045,6 +2054,9 @@ html:not(.scrolled) .up {
 .product-characteristics__button {
   -webkit-margin-end: auto;
   margin-inline-end: auto;
+}
+
+.characteristics-button {
   font-weight: 500;
   font-size: 20px;
   text-align: start;
@@ -2053,20 +2065,23 @@ html:not(.scrolled) .up {
   transition-duration: 0.3s;
 }
 
-.product-characteristics__button.active::before {
+.characteristics-button.active::before {
   content: "- ";
 }
 
-.product-characteristics__button::before {
+.characteristics-button::before {
   content: "+ ";
 }
 
 .characteristics {
   font-family: "Inter", sans-serif;
   font-weight: 500;
+  font-size: 20px;
+}
+
+.characteristics:not(.characteristics--no-padding) {
   -webkit-padding-after: 50px;
   padding-block-end: 50px;
-  font-size: 20px;
 }
 
 .characteristics__block {
@@ -2100,19 +2115,11 @@ html:not(.scrolled) .up {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.characteristics-list {
-  max-inline-size: 768px;
-}
-
 .characteristics-list__row {
   display: grid;
   -webkit-column-gap: 12px;
   -moz-column-gap: 12px;
   column-gap: 12px;
-}
-
-.characteristics-list__value {
-  white-space: nowrap;
 }
 
 .page-header {
@@ -2868,6 +2875,468 @@ input:not(:checked) ~ .catalog-label .catalog-label__icon::after {
   border-radius: 5px;
 }
 
+.tires {
+  --title-h2-padding-inline: max((100vw - 1238px) / 2, 15px);
+  --title-h2-text-align: start;
+  --title-h2-margin-bottom: 32px;
+  -webkit-padding-before: 31px;
+  padding-block-start: 31px;
+  -webkit-padding-after: 73px;
+  padding-block-end: 73px;
+}
+
+.tires > *:not(:last-child, h1) {
+  -webkit-margin-after: 131px;
+  margin-block-end: 131px;
+}
+
+.tires-main {
+  display: grid;
+  align-items: start;
+  row-gap: 65px;
+}
+
+.tires-main__title {
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-margin-after: 40px;
+  margin-block-end: 40px;
+  font-size: 40px;
+}
+
+.tires-main__text {
+  -webkit-margin-after: 60px;
+  margin-block-end: 60px;
+}
+
+.tires-main__characteristics {
+  -webkit-margin-after: 40px;
+  margin-block-end: 40px;
+}
+
+.tires-main__image {
+  grid-column: span 2;
+  inline-size: 100%;
+  block-size: 100%;
+  aspect-ratio: 855/603;
+}
+
+.tires-text {
+  max-inline-size: 592px;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.tires-characteristics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  row-gap: 40px;
+  -webkit-column-gap: 92px;
+  -moz-column-gap: 92px;
+  column-gap: 92px;
+}
+
+.tires-characteristics__item {
+  inline-size: -webkit-fit-content;
+  inline-size: -moz-fit-content;
+  inline-size: fit-content;
+}
+
+.tires-characteristics__label {
+  -webkit-margin-after: 29px;
+  margin-block-end: 29px;
+  font-weight: 700;
+  font-size: 24px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.tires-characteristics__value {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-inline-size: 221px;
+  min-block-size: 101px;
+  padding-block: 10px;
+  padding-inline: 20px;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 10px;
+  background: linear-gradient(to top, #000 0.87%, rgba(0, 0, 0, 0.57) 43.25%, rgba(0, 0, 0, 0) 99%);
+  box-shadow: 0 2px 30px 0 rgba(255, 255, 255, 0.1);
+}
+
+.tires-samle__container {
+  --container-padding-inline: 30px;
+  --container: 1298px;
+}
+
+.tires-samle__inner {
+  display: grid;
+  align-items: center;
+  row-gap: 65px;
+  -webkit-column-gap: 80px;
+  -moz-column-gap: 80px;
+  column-gap: 80px;
+}
+
+.tires-samle__image {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  margin-inline: 53px;
+}
+
+.tires-samle__title {
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-margin-after: 70px;
+  margin-block-end: 70px;
+  font-size: 20px;
+}
+
+.tires-about {
+  -webkit-padding-before: 74px;
+  padding-block-start: 74px;
+}
+
+html:not(.characteristics-active) .tires-about {
+  -webkit-padding-after: 79px;
+  padding-block-end: 79px;
+}
+
+.tires-about__inner {
+  display: grid;
+  align-items: center;
+  row-gap: 50px;
+}
+
+.tires-about__title {
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-margin-after: 20px;
+  margin-block-end: 20px;
+  font-size: 40px;
+}
+
+.tires-about__text {
+  -webkit-margin-after: 40px;
+  margin-block-end: 40px;
+  font-size: 16px;
+}
+
+.tires-about__price {
+  font-weight: 700;
+  -webkit-margin-after: 66px;
+  margin-block-end: 66px;
+  font-size: 32px;
+}
+
+.tires-about__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inline-size: 100%;
+  padding-block: 5px;
+  padding-inline: 20px;
+  font-weight: 500;
+  text-align: center;
+  background-color: #3f89bd;
+  border-radius: 10px;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  min-block-size: 66px;
+  -webkit-margin-after: 76px;
+  margin-block-end: 76px;
+  font-size: 24px;
+}
+
+.tires-info {
+  position: relative;
+  isolation: isolate;
+  inline-size: 100%;
+  block-size: 100%;
+  -webkit-padding-before: 499px;
+  padding-block-start: 499px;
+}
+
+.tires-info__list {
+  display: flex;
+  justify-content: center;
+  padding-inline: 20px;
+  background-image: linear-gradient(to left, rgba(12, 30, 42, 0.35) 15.12%, rgba(12, 30, 42, 0) 131.97%);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  -webkit-column-gap: 50px;
+  -moz-column-gap: 50px;
+  column-gap: 50px;
+  padding-block: 60px;
+}
+
+.tires-info__item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: #ebebeb;
+}
+
+.tires-info__value {
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+  -webkit-margin-after: 25px;
+  margin-block-end: 25px;
+  font-size: 32px;
+}
+
+.tires-info__label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  block-size: 100%;
+  font-size: 16px;
+}
+
+.tires-info__image {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.inspection {
+  --outline-color: #000;
+  --title-h2-text-align: start;
+  --button-width: fit-content;
+  --button-color: #fff;
+  --title-h2-margin-bottom: 20px;
+  --button-column-gap: 41px;
+  --button-min-height: 66px;
+  --button-padding-left: 50px;
+  --button-padding-right: 41px;
+  --button-font-size: 24px;
+  --button-border-radius: 10px;
+  --button-icon-width: 30px;
+  -webkit-padding-before: 53px;
+  padding-block-start: 53px;
+  -webkit-padding-after: 140px;
+  padding-block-end: 140px;
+}
+
+.inspection__container {
+  --container: 1253px;
+}
+
+.inspection__label {
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-margin-after: 59px;
+  margin-block-end: 59px;
+  font-size: 20px;
+}
+
+.inspection-form {
+  padding-block: 40px;
+  color: #000;
+  background-color: #ebebeb;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.25);
+  padding-inline: 40px;
+  border-radius: 10px;
+}
+
+.inspection-form__inputs {
+  -webkit-margin-after: 21px;
+  margin-block-end: 21px;
+}
+
+.inspection-form__inputs > *:not(:last-child) {
+  -webkit-margin-after: 20px;
+  margin-block-end: 20px;
+}
+
+.inspection-form__select .choices {
+  color: inherit;
+}
+
+.inspection-form__select .choices[data-type*=select-one]::after {
+  display: none;
+}
+
+.inspection-form__select .choices[data-type*=select-one] .choices__inner {
+  padding-block: 5px;
+  -webkit-padding-start: 34px;
+  padding-inline-start: 34px;
+  -webkit-padding-end: 18px;
+  padding-inline-end: 18px;
+}
+
+.inspection-form__select .choices.is-open .choices__inner {
+  border-start-end-radius: 10px;
+  border-start-start-radius: 10px;
+}
+
+.inspection-form__select .choices.is-focused .choices__inner {
+  background-color: #fff;
+}
+
+.inspection-form__select .choices__inner {
+  display: flex;
+  align-items: center;
+  -webkit-column-gap: 20px;
+  -moz-column-gap: 20px;
+  column-gap: 20px;
+  text-align: start;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  min-block-size: 57px;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.inspection-form__select .choices__list--single {
+  padding: 0;
+}
+
+.inspection-form__select .choices__list--dropdown,
+.inspection-form__select .choices__list[aria-expanded] {
+  word-break: normal;
+  border: none;
+  border-end-end-radius: 10px;
+  border-end-start-radius: 10px;
+}
+
+.inspection-form__select .choices__list--dropdown .choices__item,
+.inspection-form__select .choices__list[aria-expanded] .choices__item {
+  text-align: start;
+  font-size: 20px;
+}
+
+.inspection-form__select .choices__list--dropdown .choices__item--selectable,
+.inspection-form__select .choices__list[aria-expanded] .choices__item--selectable {
+  padding-block: 5px;
+  padding-inline: 34px;
+}
+
+.inspection-form__select .choices__list--dropdown .choices__item--selectable::after,
+.inspection-form__select .choices__list[aria-expanded] .choices__item--selectable::after {
+  display: none;
+}
+
+.inspection-form__select .choices__list--dropdown .choices__placeholder,
+.inspection-form__select .choices__list[aria-expanded] .choices__placeholder {
+  display: none;
+}
+
+.inspection-form__select .choices__item--choice.is-selected {
+  display: none;
+}
+
+.inspection-form__select .choices__placeholder {
+  opacity: 1;
+}
+
+.inspection-form__input input {
+  inline-size: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  block-size: 57px;
+  padding-inline: 34px;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.inspection-form__input input:focus-visible {
+  background-color: #fff;
+}
+
+.inspection-form__input input[type=number]::-webkit-inner-spin-button,
+.inspection-form__input input[type=number]::-webkit-outer-spin-button {
+  display: none;
+}
+
+.inspection-form__textarea textarea {
+  inline-size: 100%;
+  max-block-size: 300px;
+  padding-block: 17px;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  min-block-size: 123px;
+  padding-inline: 34px;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.inspection-form__textarea textarea:focus-visible {
+  background-color: #fff;
+}
+
+.inspection-form__checkbox {
+  -webkit-margin-after: 55px;
+  margin-block-end: 55px;
+}
+
+.inspection-checkbox {
+  display: flex;
+  align-items: center;
+  -webkit-column-gap: 22px;
+  -moz-column-gap: 22px;
+  column-gap: 22px;
+}
+
+.inspection-checkbox__label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
+  aspect-ratio: 1/1;
+  font-size: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  cursor: pointer;
+  inline-size: 50px;
+}
+
+.inspection-checkbox__label::after {
+  content: "";
+  flex: 0 0 auto;
+  inline-size: 75%;
+  aspect-ratio: 1/1;
+  background-color: #3f89bd;
+  border-radius: 10px;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+}
+
+input:not(:checked) ~ .inspection-checkbox__label::after {
+  background-color: rgba(63, 137, 189, 0);
+}
+
+input:focus-visible ~ .inspection-checkbox__label {
+  background-color: #fff;
+}
+
+input:checked:focus-visible ~ .inspection-checkbox__label::after {
+  background-color: #216b94;
+}
+
+.inspection-checkbox__text {
+  font-size: 16px;
+}
+
+.inspection-checkbox__text a {
+  text-decoration: underline;
+  color: #3f89bd;
+  transition-property: color;
+  transition-duration: 0.3s;
+}
+
 .guarantee {
   --title-h2-text-align: start;
   --title-h2-margin-bottom: 58px;
@@ -3359,6 +3828,35 @@ input:not(:checked) ~ .catalog-label .catalog-label__icon::after {
     --gallery-item-grid-column: span 3;
   }
 
+  .tires-samle__inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tires-samle__content {
+    max-inline-size: 439px;
+  }
+
+  .tires-about__button {
+    max-inline-size: 355px;
+    background-color: #216b94;
+  }
+
+  .inspection__label {
+    color: #fefefe;
+  }
+
+  .inspection-form__select .choices.is-open .choices__inner::after {
+    content: "-";
+  }
+
+  .inspection-form__select .choices__inner::after {
+    content: "+";
+  }
+
+  .inspection-form__footer {
+    padding-inline: 21px;
+  }
+
   .guarantee__link {
     background-color: #3f89bd;
   }
@@ -3371,6 +3869,10 @@ input:not(:checked) ~ .catalog-label .catalog-label__icon::after {
 @media (hover: hover) and (min-width: 769px) {
   .catalog-form__button:hover {
     --catalog-form-button-background-color: #3f89bd;
+  }
+
+  .tires-about__button:hover {
+    background-color: #3f89bd;
   }
 
   .guarantee__link:hover {
@@ -3539,7 +4041,24 @@ input:not(:checked) ~ .catalog-label .catalog-label__icon::after {
   }
 
   .characteristics-list__row {
-    grid-template-columns: 1.2042253521fr 0.7957746479fr;
+    grid-template-columns: 1.0677966102fr 0.9322033898fr;
+  }
+
+  .tires-main {
+    grid-template-columns: minmax(calc((100vw - 1238px) / 2), 30px) 1.2132471729fr 0.7867528271fr minmax(calc((100vw - 1238px) / 2), 30px);
+  }
+
+  .tires-main::before {
+    content: "";
+  }
+
+  .tires-main__content {
+    -webkit-padding-end: 73px;
+    padding-inline-end: 73px;
+  }
+
+  .tires-text--center {
+    text-align: center;
   }
 
   .modal {
@@ -3659,6 +4178,19 @@ input:not(:checked) ~ .catalog-label .catalog-label__icon::after {
 
   .catalog--gallery {
     --catalog-inner-gap: 66px;
+  }
+
+  .tires-about__inner {
+    grid-template-columns: minmax(calc((100vw - 1544px) / 2), 30px) 1.3471502591fr 0.6528497409fr minmax(calc((100vw - 1544px) / 2), 30px);
+  }
+
+  .tires-about__info {
+    grid-column: span 2;
+  }
+
+  .tires-about__content {
+    -webkit-padding-start: 57px;
+    padding-inline-start: 57px;
   }
 }
 
@@ -4502,12 +5034,12 @@ input:not(:checked) ~ .catalog-label .catalog-label__icon::after {
   }
 
   .characteristics {
-    -webkit-padding-after: calc(10px + 40 * (100vw - 360px) / 1214);
-    padding-block-end: calc(10px + 40 * (100vw - 360px) / 1214);
+    font-size: calc(12px + 8 * (100vw - 360px) / 1214);
   }
 
-  .characteristics {
-    font-size: calc(12px + 8 * (100vw - 360px) / 1214);
+  .characteristics:not(.characteristics--no-padding) {
+    -webkit-padding-after: calc(10px + 40 * (100vw - 360px) / 1214);
+    padding-block-end: calc(10px + 40 * (100vw - 360px) / 1214);
   }
 
   .characteristics__block {
@@ -4663,6 +5195,321 @@ input:not(:checked) ~ .catalog-label .catalog-label__icon::after {
     gap: calc(10px + 5 * (100vw - 360px) / 1214);
   }
 
+  .tires {
+    --title-h2-margin-bottom: calc(24px + 8 * (100vw - 360px) / 1214);
+  }
+
+  .tires {
+    -webkit-padding-before: calc(24px + 7 * (100vw - 360px) / 1214);
+    padding-block-start: calc(24px + 7 * (100vw - 360px) / 1214);
+  }
+
+  .tires {
+    -webkit-padding-after: calc(47px + 26 * (100vw - 360px) / 1214);
+    padding-block-end: calc(47px + 26 * (100vw - 360px) / 1214);
+  }
+
+  .tires > *:not(:last-child, h1) {
+    -webkit-margin-after: calc(57px + 74 * (100vw - 360px) / 1214);
+    margin-block-end: calc(57px + 74 * (100vw - 360px) / 1214);
+  }
+
+  .tires-main__title {
+    -webkit-margin-after: calc(50px + -10 * (100vw - 360px) / 1214);
+    margin-block-end: calc(50px + -10 * (100vw - 360px) / 1214);
+  }
+
+  .tires-main__title {
+    font-size: calc(20px + 20 * (100vw - 360px) / 1214);
+  }
+
+  .tires-main__text {
+    -webkit-margin-after: calc(40px + 20 * (100vw - 360px) / 1214);
+    margin-block-end: calc(40px + 20 * (100vw - 360px) / 1214);
+  }
+
+  .tires-main__characteristics {
+    -webkit-margin-after: calc(45px + -5 * (100vw - 360px) / 1214);
+    margin-block-end: calc(45px + -5 * (100vw - 360px) / 1214);
+  }
+
+  .tires-text {
+    font-size: calc(14px + 6 * (100vw - 360px) / 1214);
+  }
+
+  .tires-characteristics {
+    -webkit-column-gap: calc(40px + 52 * (100vw - 360px) / 1214);
+    -moz-column-gap: calc(40px + 52 * (100vw - 360px) / 1214);
+    column-gap: calc(40px + 52 * (100vw - 360px) / 1214);
+  }
+
+  .tires-samle__inner {
+    -webkit-column-gap: calc(40px + 40 * (100vw - 360px) / 1214);
+    -moz-column-gap: calc(40px + 40 * (100vw - 360px) / 1214);
+    column-gap: calc(40px + 40 * (100vw - 360px) / 1214);
+  }
+
+  .tires-samle__image {
+    margin-inline: calc(38px + 15 * (100vw - 360px) / 1214);
+  }
+
+  .tires-samle__title {
+    -webkit-margin-after: calc(40px + 30 * (100vw - 360px) / 1214);
+    margin-block-end: calc(40px + 30 * (100vw - 360px) / 1214);
+  }
+
+  .tires-samle__title {
+    font-size: calc(16px + 4 * (100vw - 360px) / 1214);
+  }
+
+  .tires-about {
+    -webkit-padding-before: calc(47px + 27 * (100vw - 360px) / 1214);
+    padding-block-start: calc(47px + 27 * (100vw - 360px) / 1214);
+  }
+
+  html:not(.characteristics-active) .tires-about {
+    -webkit-padding-after: calc(30px + 49 * (100vw - 360px) / 1214);
+    padding-block-end: calc(30px + 49 * (100vw - 360px) / 1214);
+  }
+
+  .tires-about__title {
+    -webkit-margin-after: calc(30px + -10 * (100vw - 360px) / 1214);
+    margin-block-end: calc(30px + -10 * (100vw - 360px) / 1214);
+  }
+
+  .tires-about__title {
+    font-size: calc(20px + 20 * (100vw - 360px) / 1214);
+  }
+
+  .tires-about__text {
+    -webkit-margin-after: calc(30px + 10 * (100vw - 360px) / 1214);
+    margin-block-end: calc(30px + 10 * (100vw - 360px) / 1214);
+  }
+
+  .tires-about__text {
+    font-size: calc(12px + 4 * (100vw - 360px) / 1214);
+  }
+
+  .tires-about__price {
+    -webkit-margin-after: calc(30px + 36 * (100vw - 360px) / 1214);
+    margin-block-end: calc(30px + 36 * (100vw - 360px) / 1214);
+  }
+
+  .tires-about__price {
+    font-size: calc(14px + 18 * (100vw - 360px) / 1214);
+  }
+
+  .tires-about__button {
+    min-block-size: calc(52px + 14 * (100vw - 360px) / 1214);
+  }
+
+  .tires-about__button {
+    -webkit-margin-after: calc(30px + 46 * (100vw - 360px) / 1214);
+    margin-block-end: calc(30px + 46 * (100vw - 360px) / 1214);
+  }
+
+  .tires-about__button {
+    font-size: calc(14px + 10 * (100vw - 360px) / 1214);
+  }
+
+  .tires-info {
+    -webkit-padding-before: calc(168px + 331 * (100vw - 360px) / 1214);
+    padding-block-start: calc(168px + 331 * (100vw - 360px) / 1214);
+  }
+
+  .tires-info__list {
+    -webkit-column-gap: calc(25px + 25 * (100vw - 360px) / 1214);
+    -moz-column-gap: calc(25px + 25 * (100vw - 360px) / 1214);
+    column-gap: calc(25px + 25 * (100vw - 360px) / 1214);
+  }
+
+  .tires-info__list {
+    padding-block: calc(10px + 50 * (100vw - 360px) / 1214);
+  }
+
+  .tires-info__value {
+    -webkit-margin-after: calc(10px + 15 * (100vw - 360px) / 1214);
+    margin-block-end: calc(10px + 15 * (100vw - 360px) / 1214);
+  }
+
+  .tires-info__value {
+    font-size: calc(12px + 20 * (100vw - 360px) / 1214);
+  }
+
+  .tires-info__label {
+    font-size: calc(10px + 6 * (100vw - 360px) / 1214);
+  }
+
+  .inspection {
+    --title-h2-margin-bottom: calc(24px + -4 * (100vw - 360px) / 1214);
+  }
+
+  .inspection {
+    --button-column-gap: calc(17px + 24 * (100vw - 360px) / 1214);
+  }
+
+  .inspection {
+    --button-min-height: calc(34px + 32 * (100vw - 360px) / 1214);
+  }
+
+  .inspection {
+    --button-padding-left: calc(25px + 25 * (100vw - 360px) / 1214);
+  }
+
+  .inspection {
+    --button-padding-right: calc(17px + 24 * (100vw - 360px) / 1214);
+  }
+
+  .inspection {
+    --button-font-size: calc(14px + 10 * (100vw - 360px) / 1214);
+  }
+
+  .inspection {
+    --button-border-radius: calc(5px + 5 * (100vw - 360px) / 1214);
+  }
+
+  .inspection {
+    --button-icon-width: calc(20px + 10 * (100vw - 360px) / 1214);
+  }
+
+  .inspection {
+    -webkit-padding-before: calc(24px + 29 * (100vw - 360px) / 1214);
+    padding-block-start: calc(24px + 29 * (100vw - 360px) / 1214);
+  }
+
+  .inspection {
+    -webkit-padding-after: calc(40px + 100 * (100vw - 360px) / 1214);
+    padding-block-end: calc(40px + 100 * (100vw - 360px) / 1214);
+  }
+
+  .inspection__label {
+    -webkit-margin-after: calc(24px + 35 * (100vw - 360px) / 1214);
+    margin-block-end: calc(24px + 35 * (100vw - 360px) / 1214);
+  }
+
+  .inspection__label {
+    font-size: calc(14px + 6 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form {
+    padding-inline: calc(10px + 30 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form {
+    border-radius: calc(5px + 5 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form__inputs {
+    -webkit-margin-after: calc(30px + -9 * (100vw - 360px) / 1214);
+    margin-block-end: calc(30px + -9 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form__inputs > *:not(:last-child) {
+    -webkit-margin-after: calc(27px + -7 * (100vw - 360px) / 1214);
+    margin-block-end: calc(27px + -7 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form__select .choices[data-type*=select-one] .choices__inner {
+    -webkit-padding-start: calc(14px + 20 * (100vw - 360px) / 1214);
+    padding-inline-start: calc(14px + 20 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form__select .choices[data-type*=select-one] .choices__inner {
+    -webkit-padding-end: calc(14px + 4 * (100vw - 360px) / 1214);
+    padding-inline-end: calc(14px + 4 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form__select .choices.is-open .choices__inner {
+    border-start-end-radius: calc(5px + 5 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form__select .choices.is-open .choices__inner {
+    border-start-start-radius: calc(5px + 5 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form__select .choices__inner {
+    min-block-size: calc(49px + 8 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form__select .choices__inner {
+    font-size: calc(14px + 6 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form__select .choices__inner {
+    border-radius: calc(5px + 5 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form__select .choices__list--dropdown,
+  .inspection-form__select .choices__list[aria-expanded] {
+    border-end-end-radius: calc(5px + 5 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form__select .choices__list--dropdown,
+  .inspection-form__select .choices__list[aria-expanded] {
+    border-end-start-radius: calc(5px + 5 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form__select .choices__list--dropdown .choices__item,
+  .inspection-form__select .choices__list[aria-expanded] .choices__item {
+    font-size: calc(14px + 6 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form__select .choices__list--dropdown .choices__item--selectable,
+  .inspection-form__select .choices__list[aria-expanded] .choices__item--selectable {
+    padding-inline: calc(14px + 20 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form__input input {
+    block-size: calc(49px + 8 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form__input input {
+    padding-inline: calc(14px + 20 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form__input input {
+    font-size: calc(14px + 6 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form__input input {
+    border-radius: calc(5px + 5 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form__textarea textarea {
+    min-block-size: calc(89px + 34 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form__textarea textarea {
+    padding-inline: calc(14px + 20 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form__textarea textarea {
+    font-size: calc(14px + 6 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form__textarea textarea {
+    border-radius: calc(5px + 5 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-form__checkbox {
+    -webkit-margin-after: calc(15px + 40 * (100vw - 360px) / 1214);
+    margin-block-end: calc(15px + 40 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-checkbox {
+    -webkit-column-gap: calc(11px + 11 * (100vw - 360px) / 1214);
+    -moz-column-gap: calc(11px + 11 * (100vw - 360px) / 1214);
+    column-gap: calc(11px + 11 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-checkbox__label {
+    inline-size: calc(41px + 9 * (100vw - 360px) / 1214);
+  }
+
+  .inspection-checkbox__text {
+    font-size: calc(10px + 6 * (100vw - 360px) / 1214);
+  }
+
   .guarantee {
     --title-h2-margin-bottom: calc(13px + 45 * (100vw - 360px) / 1214);
   }
@@ -4735,6 +5582,12 @@ input:not(:checked) ~ .catalog-label .catalog-label__icon::after {
 
   .preview-advantages__item {
     flex-direction: column;
+  }
+
+  .tires-about__content {
+    -webkit-padding-after: 20px;
+    padding-block-end: 20px;
+    padding-inline: 30px;
   }
 }
 
@@ -4985,6 +5838,10 @@ input:not(:checked) ~ .catalog-label .catalog-label__icon::after {
     list-style: disc;
   }
 
+  .tires-main__content {
+    padding-inline: 30px;
+  }
+
   .modal__image {
     display: none;
   }
@@ -5082,6 +5939,10 @@ input:not(:checked) ~ .catalog-label .catalog-label__icon::after {
   .gallery__item--high {
     --gallery-item-grid-row: span 2;
   }
+
+  .tires-info__item--hide {
+    display: none;
+  }
 }
 
 @media (max-width: 550px) {
@@ -5175,6 +6036,13 @@ input:not(:checked) ~ .catalog-label .catalog-label__icon::after {
   .catalog-filter {
     inline-size: 100%;
     max-inline-size: 360px;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1298px) {
+  .tires-main__content {
+    -webkit-padding-end: calc(40px + 33 * (100vw - 992px) / 306);
+    padding-inline-end: calc(40px + 33 * (100vw - 992px) / 306);
   }
 }
 
@@ -5289,7 +6157,7 @@ input:not(:checked) ~ .catalog-label .catalog-label__icon::after {
     fill: #216b94;
   }
 
-  .product-characteristics__button:hover {
+  .characteristics-button:hover {
     color: #216b94;
   }
 
@@ -5326,6 +6194,22 @@ input:not(:checked) ~ .catalog-label .catalog-label__icon::after {
   }
 
   .news-card__title a:hover {
+    color: #216b94;
+  }
+
+  .tires-about__button:hover {
+    background-color: #216b94;
+  }
+
+  .inspection-checkbox__label:hover {
+    background-color: #fff;
+  }
+
+  input:checked ~ .inspection-checkbox__label:hover::after {
+    background-color: #216b94;
+  }
+
+  .inspection-checkbox__text a:hover {
     color: #216b94;
   }
 

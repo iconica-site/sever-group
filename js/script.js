@@ -1288,17 +1288,16 @@ var slide = __webpack_require__(524);
 ;// CONCATENATED MODULE: ./src/js/scripts/scripts/product-characteristics.js
 
 
-/** @type {HTMLDivElement} */
-const characteristicsBlock = document.querySelector(".product-characteristics");
 /** @type {HTMLButtonElement} */
-const characteristicsButton = characteristicsBlock?.querySelector(".product-characteristics__button");
+const characteristicsButton = document.querySelector(".characteristics-button");
 /** @type {HTMLDivElement} */
-const characteristics = characteristicsBlock?.querySelector(".characteristics");
+const characteristics = document.querySelector(".characteristics");
 
 if (characteristicsButton && characteristics) {
   characteristicsButton.addEventListener("click", () => {
     if (!characteristics.classList.contains("slide")) {
       characteristicsButton.classList.toggle("active");
+      document.documentElement.classList.toggle("characteristics-active");
       slide/* Slide */.M.toggle(characteristics);
     }
   });
