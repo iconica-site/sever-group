@@ -1359,7 +1359,270 @@ if (filter && openButton && closeButton) {
   }
 }
 
+/** @type {HTMLFormElement} */
+const buttonsForm = document.querySelector(".buttons-form");
+/** @type {HTMLInputElement} */
+const allButton = buttonsForm?.querySelector("input[data-all]");
+
+if (allButton) {
+  /** @type {HTMLInputElement[]} */
+  const checkboxes = [...buttonsForm.querySelectorAll("input:not([data-all])")];
+
+  checkboxes?.forEach(checkbox => {
+    checkbox.addEventListener("change", () => {
+      allButton.checked = !checkboxes.some(checkbox => checkbox.checked);
+    });
+  });
+
+  allButton.addEventListener("change", () => {
+    const { checked } = allButton;
+
+    if (checked) {
+      checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+      });
+    } else {
+      allButton.checked = true;
+    }
+  });
+}
+
+;// CONCATENATED MODULE: ./src/js/modules/media/media.js
+const media_selectors = {
+  button: "[data-play], button, a",
+  iframe: "iframe",
+  mediaBlocks: "[data-media]",
+  picture: "img, picture",
+};
+const addedClass = "media--ready";
+/** @type {NodeListOf<HTMLDivElement>} */
+const mediaBlocks = document.querySelectorAll(media_selectors.mediaBlocks);
+/** @type {MediaHostings} */
+const hostings = {
+  rutube: {
+    blocks: [],
+    hostingName: "rutube",
+    idRegExp: /^[a-fA-F0-9]{32}$/,
+  },
+  vimeo: {
+    blocks: [],
+    hostingName: "vimeo",
+    idRegExp: /^[0-9]{9}$/,
+  },
+  youtube: {
+    blocks: [],
+    hostingName: "youtube",
+    idRegExp: /^[a-zA-Z0-9_-]{11}$/,
+  },
+};
+
+mediaBlocks?.forEach(mediaBlock => {
+  const { dataset } = mediaBlock;
+  const iframeInMediaBlock = mediaBlock.querySelector(media_selectors.iframe);
+
+  let { media, hosting } = dataset;
+
+  if (media) media = media.trim();
+  if (hosting) hosting = hosting.trim();
+
+  if (!iframeInMediaBlock) {
+    for (const item in hostings) {
+      const { blocks, hostingName, idRegExp } = hostings[item];
+
+      if (hosting === hostingName || idRegExp.test(media)) {
+        blocks.push(mediaBlock);
+        dataset.hosting = hostingName;
+      }
+    }
+  } else {
+    /** @type {HTMLButtonElement | HTMLAnchorElement | Element} */
+    const buttonInMediaBlock = mediaBlock.querySelector(media_selectors.button);
+    /** @type {HTMLImageElement | HTMLPictureElement} */
+    const pictureInMediaBlock = mediaBlock.querySelector(media_selectors.picture);
+
+    if (buttonInMediaBlock) buttonInMediaBlock.remove();
+    if (pictureInMediaBlock) pictureInMediaBlock.remove();
+
+    mediaBlock.removeAttribute("data-media");
+    mediaBlock.removeAttribute("data-hosting");
+  }
+});
+
+
+
+;// CONCATENATED MODULE: ./src/js/modules/media/youtube.js
+
+
+const { youtube } = hostings;
+const { blocks, hostingName } = youtube;
+const localStorageName = `${hostingName}-thumbnails`;
+
+if (!localStorage.getItem(localStorageName)) localStorage.setItem(localStorageName, "{}");
+
+class YoutubeMedia {
+  #apiLink = "https://www.youtube.com/iframe_api";
+  #isApiLoaded = false;
+  #thumbnailNames = ["maxresdefault", "hq720", "sddefault", "sd3", "sd2", "sd1", "hqdefault", "hqdefault", "hq3", "hq2", "hq1", "0", "mqdefault", "mq3", "mq2", "mq1"];
+  #thumbnailNamesLength = this.#thumbnailNames.length;
+  /** @type {YoutubeThumbnailStorage} */
+  #thumbnailsStorage = JSON.parse(localStorage.getItem(localStorageName));
+
+  /** @type {MediaConstructor} */
+  constructor(options = {}) {
+    if (blocks.length) {
+      this.onPlay = options.onPlay;
+      this.#init();
+    }
+  }
+
+  #init() {
+    blocks.forEach(block => {
+      block[hostingName] = this;
+
+      const { dataset } = block;
+      const { media } = dataset;
+
+      /** @type {HTMLButtonElement | HTMLAnchorElement | Element} */
+      const button = block.querySelector(media_selectors.button);
+
+      if (button) {
+        const iframePlaceholder = document.createElement("div");
+        const picture = this.#getThumbnailImage(block, media);
+
+        iframePlaceholder.dataset.iframePlaceholder = "";
+
+        block.prepend(iframePlaceholder, picture);
+        this.#buttonClickEvent(block, button);
+      }
+    });
+  }
+
+  /** @type {GetMediaThumbnailImage} */
+  #getThumbnailImage(block, media) {
+    /** @type {HTMLPictureElement | HTMLImageElement} */
+    let picture = block.querySelector(media_selectors.picture);
+
+    if (!picture) {
+      const source = document.createElement("source");
+      const img = document.createElement("img");
+
+      picture = document.createElement("picture");
+
+      if (this.#thumbnailsStorage[media]) {
+        const { jpg, webp } = this.#thumbnailsStorage[media];
+
+        source.srcset = webp;
+        img.src = jpg;
+      } else {
+        this.#thumbnailsStorage[media] = {};
+        this.#getThumbnailSrc(source, media);
+        this.#getThumbnailSrc(img, media);
+      }
+
+      source.type = "image/webp";
+      img.alt = "";
+      picture.append(source, img);
+    }
+
+    return picture;
+  }
+
+  /** @type {GetYoutubeThumbnailSrc} */
+  #getThumbnailSrc(imageElement, media, index = 0) {
+    if (index >= this.#thumbnailNamesLength) return;
+
+    const type = imageElement instanceof HTMLSourceElement ? "webp" : "jpg";
+    const img = document.createElement("img");
+    const thumbnailName = this.#thumbnailNames[index];
+    const src = `https://i.ytimg.com/vi${type === "webp" ? `_${type}` : ""}/${media}/${thumbnailName}.${type}`;
+
+    img.src = src;
+
+    img.addEventListener("load", () => {
+      const { width, height } = img;
+
+      if (width === 120 && height === 90) {
+        this.#getThumbnailSrc(imageElement, media, ++index);
+      } else {
+        imageElement[type === "webp" ? "srcset" : "src"] = src;
+        this.#thumbnailsStorage[media][type] = src;
+        localStorage.setItem(localStorageName, JSON.stringify(this.#thumbnailsStorage));
+      }
+    });
+  }
+
+  /** @type {MediaPlayButtonClickEvent} */
+  #buttonClickEvent(block, button) {
+    button.addEventListener("click", () => {
+      this.#isApiLoaded ? this.#createIframe(block) : this.#loadApi(block);
+    });
+  }
+
+  /** @type {MediaLoadApi} */
+  #loadApi(block) {
+    const script = document.createElement("script");
+    const firstScriptTag = document.getElementsByTagName("script")[0];
+
+    script.src = this.#apiLink;
+    firstScriptTag.parentNode.insertBefore(script, firstScriptTag);
+    this.#isApiLoaded = true;
+
+    script.addEventListener("load", () => {
+      /** @type {HTMLScriptElement} */
+      const api = document.querySelector("script#www-widgetapi-script");
+
+      api.addEventListener("load", () => {
+        this.#createIframe(block);
+      });
+    });
+  }
+
+  /** @type {MediaCreateIframe} */
+  #createIframe(block) {
+    const { dataset, classList } = block;
+    const { media } = dataset;
+    /** @type {HTMLPictureElement | HTMLImageElement} */
+    const picture = block.querySelector(media_selectors.picture);
+    /** @type {HTMLButtonElement | HTMLAnchorElement | Element} */
+    const button = block.querySelector(media_selectors.button);
+    /** @type {HTMLDivElement} */
+    const iframePlaceholder = block.querySelector("[data-iframe-placeholder]");
+
+    if (typeof this.onPlay === "function") this.onPlay(block);
+
+    picture.remove();
+    button.remove();
+    classList.add(addedClass);
+
+    new YT.Player(iframePlaceholder, {
+      videoId: media,
+      playerVars: {
+        "autoplay": 1,
+        "rel": 0,
+        "playsinline": 1,
+      },
+      events: {
+        "onReady": (event) => {
+          const { target } = event;
+
+          if (matchMedia("(hover: none)").matches) target.mute();
+
+          target.playVideo();
+        },
+      },
+    });
+  }
+}
+
+
+
+;// CONCATENATED MODULE: ./src/js/scripts/scripts/media.js
+
+
+const media_youtube = new YoutubeMedia();
+
 ;// CONCATENATED MODULE: ./src/js/scripts/scripts.js
+
 
 
 
