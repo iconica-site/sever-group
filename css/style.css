@@ -3445,6 +3445,243 @@ input:checked:focus-visible ~ .inspection-checkbox__label::after {
   list-style: decimal;
 }
 
+.dealership {
+  -webkit-padding-before: 52px;
+  padding-block-start: 52px;
+  -webkit-padding-after: 85px;
+  padding-block-end: 85px;
+}
+
+.dealership__title {
+  padding-inline: max((100vw - 1234px) / 2, 15px);
+  font-weight: 700;
+  font-size: 40px;
+  text-transform: uppercase;
+  font-size: 40px;
+  -webkit-margin-after: 42px;
+  margin-block-end: 42px;
+}
+
+.dealership__official {
+  -webkit-margin-after: 80px;
+  margin-block-end: 80px;
+}
+
+.dealership__inner {
+  -webkit-margin-after: 80px;
+  margin-block-end: 80px;
+}
+
+.dealership__container {
+  --container: 1134px;
+}
+
+.dealership__text {
+  -webkit-margin-after: 150px;
+  margin-block-end: 150px;
+  font-size: 20px;
+}
+
+.dealership__advantages {
+  -webkit-margin-after: 53px;
+  margin-block-end: 53px;
+}
+
+.dealership-official {
+  --button-column-gap: 23px;
+  --button-width: fit-content;
+  --button-max-width: 391px;
+  position: relative;
+  isolation: isolate;
+  --button-min-height: 66px;
+  --button-padding-left: 50px;
+  --button-padding-right: 28px;
+  --button-font-size: 24px;
+  --button-border-radius: 10px;
+  --button-icon-width: 30px;
+}
+
+.dealership-official__inner {
+  padding-inline: max((100vw - 910px) / 2, 60px);
+  background-color: rgba(12, 30, 42, 0.2);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  -webkit-padding-before: 228px;
+  padding-block-start: 228px;
+  -webkit-padding-after: 97px;
+  padding-block-end: 97px;
+}
+
+.dealership-official__title {
+  inline-size: -webkit-min-content;
+  inline-size: -moz-min-content;
+  inline-size: min-content;
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-margin-after: 50px;
+  margin-block-end: 50px;
+  font-size: 48px;
+}
+
+.dealership-official__image {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.dealership-articles {
+  display: grid;
+  row-gap: 40px;
+  -webkit-column-gap: 156px;
+  -moz-column-gap: 156px;
+  column-gap: 156px;
+}
+
+.dealership-article__title {
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-margin-after: 75px;
+  margin-block-end: 75px;
+  font-size: 36px;
+}
+
+.dealership-article__text {
+  font-size: 20px;
+}
+
+.dealership-advantages__block {
+  padding-inline: max((100vw - 1280px) / 2, 31px);
+}
+
+.dealership-advantages__title {
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-margin-after: 45px;
+  margin-block-end: 45px;
+  font-size: 36px;
+}
+
+.dealership-advantages__list {
+  counter-reset: dealership-advantages-counter;
+}
+
+.dealership-advantages__item {
+  display: grid;
+  grid-template-columns: var(--dealership-advantages-counter-width) 1fr;
+  align-items: center;
+  -webkit-column-gap: 27px;
+  -moz-column-gap: 27px;
+  column-gap: 27px;
+  --dealership-advantages-counter-width: 47px;
+}
+
+.dealership-advantages__item:not(:last-child) {
+  -webkit-margin-after: 15px;
+  margin-block-end: 15px;
+}
+
+.dealership-advantages__item:nth-child(-n+9)::before {
+  content: "0" counter(dealership-advantages-counter);
+}
+
+.dealership-advantages__item::before {
+  content: counter(dealership-advantages-counter);
+  counter-increment: dealership-advantages-counter;
+  align-self: start;
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.dealership-advantages__label {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.dealership-advantages__sublist {
+  -webkit-margin-before: 15px;
+  margin-block-start: 15px;
+}
+
+.dealership-sublist {
+  font-weight: 500;
+}
+
+.dealership-text {
+  font-size: 20px;
+}
+
+.dealership-text__container {
+  --container-padding-inline: 31px;
+  --container: 913px;
+}
+
+.bedealer {
+  --button-width: fit-content;
+  --button-max-width: 391px;
+  position: relative;
+  isolation: isolate;
+  --button-column-gap: 84px;
+  --button-min-height: 66px;
+  --button-padding-left: 50px;
+  --button-padding-right: 28px;
+  --button-font-size: 24px;
+  --button-border-radius: 10px;
+  --button-icon-width: 30px;
+}
+
+.bedealer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: rgba(12, 30, 42, 0.2);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.bedealer__container {
+  --container-padding-inline: 47px;
+  --container: 986px;
+}
+
+.bedealer__inner {
+  display: grid;
+  align-items: end;
+  -webkit-column-gap: 20px;
+  -moz-column-gap: 20px;
+  column-gap: 20px;
+  row-gap: 48px;
+  -webkit-padding-before: 269px;
+  padding-block-start: 269px;
+  -webkit-padding-after: 132px;
+  padding-block-end: 132px;
+}
+
+.bedealer__title {
+  inline-size: -webkit-min-content;
+  inline-size: -moz-min-content;
+  inline-size: min-content;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 64px;
+}
+
+.bedealer__image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.bedealer-addresses {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  -webkit-column-gap: 15px;
+  -moz-column-gap: 15px;
+  column-gap: 15px;
+  font-size: 20px;
+}
+
 .payment {
   padding-block: var(--payment-padding-top, 0px) var(--payment-padding-bottom, 0px);
 }
@@ -3851,6 +4088,12 @@ input:checked:focus-visible ~ .inspection-checkbox__label::after {
   text-decoration: underline;
 }
 
+@media (min-width: 311px) {
+  .dealership-articles {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
 @media (min-width: 321px) {
   .preview-advantages {
     -webkit-column-gap: 99px;
@@ -4151,6 +4394,84 @@ input:checked:focus-visible ~ .inspection-checkbox__label::after {
 
   .guarantee__link {
     background-color: #3f89bd;
+  }
+
+  .dealership__title {
+    color: #fefefe;
+  }
+
+  .dealership-official {
+    --button-width: 100%;
+  }
+
+  .dealership-official__inner {
+    inline-size: -webkit-fit-content;
+    inline-size: -moz-fit-content;
+    inline-size: fit-content;
+    -webkit-padding-end: 232px;
+    padding-inline-end: 232px;
+  }
+
+  .dealership-article__title {
+    text-align: center;
+  }
+
+  .dealership-advantages {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .dealership-advantages__image {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .dealership-advantages__block {
+    inline-size: -webkit-fit-content;
+    inline-size: -moz-fit-content;
+    inline-size: fit-content;
+    -webkit-margin-start: auto;
+    margin-inline-start: auto;
+    padding-block: 46px 53px;
+    background-color: rgba(12, 30, 42, 0.4);
+    -webkit-backdrop-filter: blur(7.5px);
+    backdrop-filter: blur(7.5px);
+    -webkit-padding-start: 40px;
+    padding-inline-start: 40px;
+  }
+
+  .dealership-advantages__inner {
+    max-inline-size: 462px;
+  }
+
+  .bedealer__inner {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "title button" "address address";
+  }
+
+  .bedealer__title {
+    grid-area: title;
+  }
+
+  .bedealer__addresses {
+    grid-area: address;
+  }
+
+  .bedealer__button {
+    grid-area: button;
+  }
+
+  .bedealer-addresses__item:not(:last-child) {
+    display: flex;
+    align-items: center;
+    -webkit-column-gap: 15px;
+    -moz-column-gap: 15px;
+    column-gap: 15px;
+  }
+
+  .bedealer-addresses__item:not(:last-child)::after {
+    content: "-";
   }
 
   .payment-card {
@@ -5866,6 +6187,187 @@ input:checked:focus-visible ~ .inspection-checkbox__label::after {
     font-size: calc(12px + 8 * (100vw - 360px) / 1214);
   }
 
+  .dealership {
+    -webkit-padding-before: calc(24px + 28 * (100vw - 360px) / 1214);
+    padding-block-start: calc(24px + 28 * (100vw - 360px) / 1214);
+  }
+
+  .dealership {
+    -webkit-padding-after: calc(45px + 40 * (100vw - 360px) / 1214);
+    padding-block-end: calc(45px + 40 * (100vw - 360px) / 1214);
+  }
+
+  .dealership__title {
+    font-size: calc(16px + 24 * (100vw - 360px) / 1214);
+  }
+
+  .dealership__title {
+    -webkit-margin-after: calc(24px + 18 * (100vw - 360px) / 1214);
+    margin-block-end: calc(24px + 18 * (100vw - 360px) / 1214);
+  }
+
+  .dealership__official {
+    -webkit-margin-after: calc(24px + 56 * (100vw - 360px) / 1214);
+    margin-block-end: calc(24px + 56 * (100vw - 360px) / 1214);
+  }
+
+  .dealership__inner {
+    -webkit-margin-after: calc(56px + 24 * (100vw - 360px) / 1214);
+    margin-block-end: calc(56px + 24 * (100vw - 360px) / 1214);
+  }
+
+  .dealership__text {
+    -webkit-margin-after: calc(40px + 110 * (100vw - 360px) / 1214);
+    margin-block-end: calc(40px + 110 * (100vw - 360px) / 1214);
+  }
+
+  .dealership__text {
+    font-size: calc(14px + 6 * (100vw - 360px) / 1214);
+  }
+
+  .dealership__advantages {
+    -webkit-margin-after: calc(44px + 9 * (100vw - 360px) / 1214);
+    margin-block-end: calc(44px + 9 * (100vw - 360px) / 1214);
+  }
+
+  .dealership-official {
+    --button-min-height: calc(34px + 32 * (100vw - 360px) / 1214);
+  }
+
+  .dealership-official {
+    --button-padding-left: calc(25px + 25 * (100vw - 360px) / 1214);
+  }
+
+  .dealership-official {
+    --button-padding-right: calc(20px + 8 * (100vw - 360px) / 1214);
+  }
+
+  .dealership-official {
+    --button-font-size: calc(14px + 10 * (100vw - 360px) / 1214);
+  }
+
+  .dealership-official {
+    --button-border-radius: calc(5px + 5 * (100vw - 360px) / 1214);
+  }
+
+  .dealership-official {
+    --button-icon-width: calc(20px + 10 * (100vw - 360px) / 1214);
+  }
+
+  .dealership-official__inner {
+    -webkit-padding-before: calc(76px + 152 * (100vw - 360px) / 1214);
+    padding-block-start: calc(76px + 152 * (100vw - 360px) / 1214);
+  }
+
+  .dealership-official__inner {
+    -webkit-padding-after: calc(86px + 11 * (100vw - 360px) / 1214);
+    padding-block-end: calc(86px + 11 * (100vw - 360px) / 1214);
+  }
+
+  .dealership-official__title {
+    -webkit-margin-after: calc(23px + 27 * (100vw - 360px) / 1214);
+    margin-block-end: calc(23px + 27 * (100vw - 360px) / 1214);
+  }
+
+  .dealership-official__title {
+    font-size: calc(20px + 28 * (100vw - 360px) / 1214);
+  }
+
+  .dealership-article__title {
+    -webkit-margin-after: calc(16px + 59 * (100vw - 360px) / 1214);
+    margin-block-end: calc(16px + 59 * (100vw - 360px) / 1214);
+  }
+
+  .dealership-article__title {
+    font-size: calc(16px + 20 * (100vw - 360px) / 1214);
+  }
+
+  .dealership-article__text {
+    font-size: calc(14px + 6 * (100vw - 360px) / 1214);
+  }
+
+  .dealership-advantages__title {
+    -webkit-margin-after: calc(40px + 5 * (100vw - 360px) / 1214);
+    margin-block-end: calc(40px + 5 * (100vw - 360px) / 1214);
+  }
+
+  .dealership-advantages__title {
+    font-size: calc(20px + 16 * (100vw - 360px) / 1214);
+  }
+
+  .dealership-advantages__item {
+    --dealership-advantages-counter-width: calc(38px + 9 * (100vw - 360px) / 1214);
+  }
+
+  .dealership-advantages__item::before {
+    font-size: calc(32px + 8 * (100vw - 360px) / 1214);
+  }
+
+  .dealership-advantages__sublist {
+    -webkit-margin-before: calc(6px + 9 * (100vw - 360px) / 1214);
+    margin-block-start: calc(6px + 9 * (100vw - 360px) / 1214);
+  }
+
+  .dealership-text {
+    font-size: calc(12px + 8 * (100vw - 360px) / 1214);
+  }
+
+  .bedealer {
+    --button-column-gap: calc(23px + 61 * (100vw - 360px) / 1214);
+  }
+
+  .bedealer {
+    --button-min-height: calc(34px + 32 * (100vw - 360px) / 1214);
+  }
+
+  .bedealer {
+    --button-padding-left: calc(25px + 25 * (100vw - 360px) / 1214);
+  }
+
+  .bedealer {
+    --button-padding-right: calc(20px + 8 * (100vw - 360px) / 1214);
+  }
+
+  .bedealer {
+    --button-font-size: calc(14px + 10 * (100vw - 360px) / 1214);
+  }
+
+  .bedealer {
+    --button-border-radius: calc(5px + 5 * (100vw - 360px) / 1214);
+  }
+
+  .bedealer {
+    --button-icon-width: calc(20px + 10 * (100vw - 360px) / 1214);
+  }
+
+  .bedealer__inner {
+    row-gap: calc(11px + 37 * (100vw - 360px) / 1214);
+  }
+
+  .bedealer__inner {
+    -webkit-padding-before: calc(43px + 226 * (100vw - 360px) / 1214);
+    padding-block-start: calc(43px + 226 * (100vw - 360px) / 1214);
+  }
+
+  .bedealer__inner {
+    -webkit-padding-after: calc(42px + 90 * (100vw - 360px) / 1214);
+    padding-block-end: calc(42px + 90 * (100vw - 360px) / 1214);
+  }
+
+  .bedealer__title {
+    font-size: calc(20px + 44 * (100vw - 360px) / 1214);
+  }
+
+  .bedealer-addresses {
+    -webkit-column-gap: calc(5px + 10 * (100vw - 360px) / 1214);
+    -moz-column-gap: calc(5px + 10 * (100vw - 360px) / 1214);
+    column-gap: calc(5px + 10 * (100vw - 360px) / 1214);
+  }
+
+  .bedealer-addresses {
+    font-size: calc(12px + 8 * (100vw - 360px) / 1214);
+  }
+
   .payment--main {
     --payment-padding-top: calc(15px + 34 * (100vw - 360px) / 1214);
   }
@@ -6456,6 +6958,40 @@ input:checked:focus-visible ~ .inspection-checkbox__label::after {
   .tires-info__item--hide {
     display: none;
   }
+
+  .dealership-advantages__image {
+    aspect-ratio: 360/251;
+    -webkit-margin-after: 32px;
+    margin-block-end: 32px;
+  }
+
+  .dealership-advantages__title {
+    text-align: center;
+  }
+
+  .bedealer-addresses {
+    max-inline-size: 182px;
+  }
+
+  .bedealer-addresses__item:nth-child(odd):not(:last-child) {
+    display: flex;
+    align-items: center;
+    -webkit-column-gap: 15px;
+    -moz-column-gap: 15px;
+    column-gap: 15px;
+  }
+
+  .bedealer-addresses__item:nth-child(odd):not(:last-child)::after {
+    content: "-";
+  }
+}
+
+@media (max-width: 768px) and (max-width: 1574px) {
+  .bedealer-addresses__item:nth-child(odd):not(:last-child) {
+    -webkit-column-gap: calc(5px + 10 * (100vw - 360px) / 1214);
+    -moz-column-gap: calc(5px + 10 * (100vw - 360px) / 1214);
+    column-gap: calc(5px + 10 * (100vw - 360px) / 1214);
+  }
 }
 
 @media (max-width: 550px) {
@@ -6510,6 +7046,22 @@ input:checked:focus-visible ~ .inspection-checkbox__label::after {
 
   .description-about__content {
     padding: calc(25px + 25 * (100vw - 360px) / 1214);
+  }
+
+  .dealership-official__inner {
+    -webkit-padding-end: calc(95px + 137 * (100vw - 360px) / 1214);
+    padding-inline-end: calc(95px + 137 * (100vw - 360px) / 1214);
+  }
+
+  .dealership-advantages__block {
+    -webkit-padding-start: calc(31px + 9 * (100vw - 360px) / 1214);
+    padding-inline-start: calc(31px + 9 * (100vw - 360px) / 1214);
+  }
+
+  .bedealer-addresses__item:not(:last-child) {
+    -webkit-column-gap: calc(5px + 10 * (100vw - 360px) / 1214);
+    -moz-column-gap: calc(5px + 10 * (100vw - 360px) / 1214);
+    column-gap: calc(5px + 10 * (100vw - 360px) / 1214);
   }
 }
 
