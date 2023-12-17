@@ -9751,5 +9751,34 @@ if (productPhotosSlider) {
   });
 }
 
+const newsMoreSlider = document.querySelector(".news-more-slider");
+
+if (newsMoreSlider) {
+  const swiper = new Swiper(newsMoreSlider, {
+    modules: [Keyboard, Pagination],
+    keyboard: {
+      enabled: true,
+      pageUpDown: false,
+    },
+    pagination: {
+      clickable: true,
+      el: newsMoreSlider.querySelector(".slider-pagination"),
+      enabled: true,
+    },
+    breakpoints: {
+      651: {
+        slidesPerView: 2,
+      },
+      993: {
+        slidesPerView: 3,
+      },
+    },
+    loop: true,
+    loopAddBlankSlides: true,
+    slidesPerView: 1,
+    spaceBetween: 14,
+  });
+}
+
 /******/ })()
 ;

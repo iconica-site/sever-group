@@ -1509,7 +1509,7 @@ class YoutubeMedia {
     /** @type {HTMLPictureElement | HTMLImageElement} */
     let picture = block.querySelector(media_selectors.picture);
 
-    if (!picture) {
+    if (!picture || picture.closest(media_selectors.button)) {
       const source = document.createElement("source");
       const img = document.createElement("img");
 
