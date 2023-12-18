@@ -964,6 +964,11 @@ html:not(.burger-active) .burger-button__icon--fill {
   object-fit: contain;
 }
 
+.footer__call {
+  -webkit-margin-after: 32px;
+  margin-block-end: 32px;
+}
+
 .footer-call {
   -webkit-padding-start: 7px;
   padding-inline-start: 7px;
@@ -1317,6 +1322,11 @@ html:not(.scrolled) .up {
   margin-block-end: 111px;
 }
 
+.advantages__media {
+  -webkit-margin-after: 99px;
+  margin-block-end: 99px;
+}
+
 .advantages-header {
   display: grid;
   grid-template-columns: 15px 1fr 15px;
@@ -1365,6 +1375,39 @@ html:not(.scrolled) .up {
   -webkit-margin-after: 41px;
   margin-block-end: 41px;
   font-size: 24px;
+}
+
+.advantages-video__title {
+  padding-inline: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  -webkit-margin-after: 46px;
+  margin-block-end: 46px;
+  font-size: 32px;
+}
+
+.advantages-video__item {
+  max-inline-size: 1194px;
+  aspect-ratio: 1194/669;
+  margin-inline: auto;
+}
+
+.advantages-button {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+}
+
+.advantages-button__image {
+  inline-size: 100%;
+  max-inline-size: 437px;
+  aspect-ratio: 437/219;
+}
+
+.advantages-button__image img {
+  -o-object-fit: contain;
+  object-fit: contain;
 }
 
 .advantages-images__container {
@@ -4020,6 +4063,11 @@ input:checked:focus-visible ~ .inspection-checkbox__label::after {
   aspect-ratio: 207/104;
 }
 
+.about-button__image img {
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+
 .about-button__text {
   -webkit-margin-before: -30px;
   margin-block-start: -30px;
@@ -4654,6 +4702,16 @@ input:checked:focus-visible ~ .inspection-checkbox__label::after {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .advantages-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(10, 14, 17, 0.7);
+    -webkit-backdrop-filter: blur(7.5px);
+    backdrop-filter: blur(7.5px);
+  }
+
   .buy--catalog {
     --buy-title-font-style: italic;
   }
@@ -5096,11 +5154,6 @@ input:checked:focus-visible ~ .inspection-checkbox__label::after {
     grid-template-columns: auto 1fr;
   }
 
-  .footer__call {
-    -webkit-margin-after: 32px;
-    margin-block-end: 32px;
-  }
-
   .footer__socials {
     -webkit-margin-after: 32px;
     margin-block-end: 32px;
@@ -5447,6 +5500,11 @@ input:checked:focus-visible ~ .inspection-checkbox__label::after {
     font-size: calc(12px + 4 * (100vw - 360px) / 1214);
   }
 
+  .footer__call {
+    -webkit-margin-after: calc(24px + 8 * (100vw - 360px) / 1214);
+    margin-block-end: calc(24px + 8 * (100vw - 360px) / 1214);
+  }
+
   .up {
     inset-block-start: calc(-22px + -14 * (100vw - 360px) / 1214);
   }
@@ -5654,6 +5712,11 @@ input:checked:focus-visible ~ .inspection-checkbox__label::after {
     margin-block-end: calc(44px + 67 * (100vw - 360px) / 1214);
   }
 
+  .advantages__media {
+    -webkit-margin-after: calc(34px + 65 * (100vw - 360px) / 1214);
+    margin-block-end: calc(34px + 65 * (100vw - 360px) / 1214);
+  }
+
   .advantages-header__image {
     border-radius: calc(20px + -10 * (100vw - 360px) / 1214);
   }
@@ -5684,6 +5747,15 @@ input:checked:focus-visible ~ .inspection-checkbox__label::after {
 
   .advantages-articles__content h3 {
     font-size: calc(14px + 10 * (100vw - 360px) / 1214);
+  }
+
+  .advantages-video__title {
+    -webkit-margin-after: calc(37px + 9 * (100vw - 360px) / 1214);
+    margin-block-end: calc(37px + 9 * (100vw - 360px) / 1214);
+  }
+
+  .advantages-video__title {
+    font-size: calc(20px + 12 * (100vw - 360px) / 1214);
   }
 
   .advantages-images__container {
@@ -7546,15 +7618,17 @@ input:checked:focus-visible ~ .inspection-checkbox__label::after {
     inline-size: -webkit-fit-content;
     inline-size: -moz-fit-content;
     inline-size: fit-content;
-    text-align: center;
     font-size: 16px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .footer-call__label {
+    display: inline;
   }
 
   .footer-socials {
-    position: absolute;
-    inset-block-end: 0;
-    inset-inline-end: 17px;
-    flex-direction: column;
+    justify-content: center;
   }
 
   .footer-socials__link svg {
@@ -7651,6 +7725,10 @@ input:checked:focus-visible ~ .inspection-checkbox__label::after {
 
   .hero-card__caption {
     color: #ebebeb;
+  }
+
+  .advantages-button__image {
+    display: none;
   }
 
   .buy__hide-mob {
